@@ -1,13 +1,15 @@
 import React from 'react'
 import Header from './Header'
+import Content from './Content'
 
-const Body = () => {
+const LandingPage = () => {
   return (
     <div>
         <Header />
+        <Content />
       
     </div>
   )
 }
 
-export default Body
+export default LandingPage

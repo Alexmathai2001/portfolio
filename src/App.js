@@ -1,11 +1,12 @@
 import React from 'react'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
-import Body from './components/Body'
+import LandingPage from './components/LandingPage'
+import LandingPage from './components/LandingPage'
 
 const App = () => {
   return (
     <div>
-        <Body />
+        <LandingPage />
     </div>
   )
 }
