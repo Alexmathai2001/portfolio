@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -7,14 +8,14 @@ const Header = () => {
         <p className="text-xl">alexmathai.dev</p>
       </div>
       <div className="flex justify-evenly py-2">
-        <div className="flex gap-2">
+        <Link to={"/"} className="flex gap-2">
           <i class="bi bi-house"></i>
           <p>Home</p>
-        </div>
-        <div className="flex gap-2">
+        </Link>
+        <Link to={"/projects"} className="flex gap-2">
           <i class="bi bi-gear"></i>
           <p>Projects</p>
-        </div>
+        </Link>
       </div>
     </div>
   );
