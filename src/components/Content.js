@@ -16,7 +16,7 @@ const Content = () => {
       <div className="flex flex-grow"></div>
       <div className="flex justify-center">
         <div>
-          <p className="text-3xl md:text-5xl md:my-2 md:mb-10">👋 I'm Alex mathai</p>
+          <p className="text-3xl md:text-5xl md:my-2 md:mb-10">Hi! I'm Alex mathai</p>
 
           {/* links */}
           <div className="mt-5 flex items-center justify-evenly">
