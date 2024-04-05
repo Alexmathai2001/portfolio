@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import ProjectShimmer from "./ProjectShimmer";
 
 const ProjectContent = () => {
-  const [repoData, setRepoData] = useState();
+  const [repoData, setRepoData] = useState([]);
 
   useEffect(() => {
     const apicall = async () => {
@@ -18,6 +19,13 @@ const ProjectContent = () => {
     };
     apicall();
   }, []);
+
+  if(repoData.length === 0 ){
+    return <ProjectShimmer />;
+  }
+  
+
+ 
   return (
     <div className="h-auto min-h-screen flex flex-col w-full bg-slate-600 text-white">
       <div className="flex flex-grow"></div>
