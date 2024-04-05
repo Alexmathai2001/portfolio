@@ -11,7 +11,7 @@ const ProjectShimmer = () => {
           {/* github api */}
           <div className="flex justify-center w-full ">
             <div
-              className="w-60 h-80 bg-black"
+              className=" md:w-[30rem] md:h-80 w-40 h-20 bg-gray-800 rounded-2xl"
             >
             </div>
           </div>
