@@ -5,7 +5,7 @@ const Content = () => {
   const emailAddress = "alexmathai07@gmail.com"
   const handleDownload = () => {
     const element = document.createElement("a");
-    element.setAttribute("href", "https://drive.google.com/file/d/1nWM5K59UkHFvq1qUxodhf3FWfWB_xUO1/view?usp=drive_link");
+    element.setAttribute("href", "https://drive.google.com/file/d/1iGLV-jyiwqGpWh-AM19fqrlYbNXrKlCD/view?usp=drive_link");
     element.setAttribute("download", "Alex_Mathai_Resume.pdf");
     document.body.appendChild(element);
     element.click();
