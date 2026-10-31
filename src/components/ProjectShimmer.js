@@ -2,35 +2,20 @@ import React from 'react'
 
 const ProjectShimmer = () => {
   return (
-    <div className="h-auto min-h-screen flex flex-col w-full bg-slate-600 text-white">
-      <div className="flex flex-grow"></div>
-      <div className="flex justify-center mt-36 mb-20">
+    <main className="min-h-screen w-full px-5 pb-24 pt-28">
+      <div className="mx-auto max-w-6xl animate-pulse">
         <div className="flex flex-col items-center">
-          <p className="capitalize text-center mb-5">my github Streaks</p>
-
-          {/* github api */}
-          <div className="flex justify-center w-full ">
-            <div
-              className=" md:w-[30rem] md:h-80 w-40 h-20 bg-gray-800 rounded-2xl"
-            >
-            </div>
-          </div>
-          {/* projects */}
-          <div className="flex flex-col items-center">
-            <p className="text-center my-5">Project</p>
-            {/* card container */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              {/* card */}
-                <div className="w-52 h-[20rem] flex flex-col items-center rounded-lg bg-black  p-5"></div>
-                <div className="w-52 h-[20rem] flex flex-col items-center rounded-lg bg-black  p-5"></div>
-                <div className="w-52 h-[20rem] flex flex-col items-center rounded-lg bg-black  p-5"></div>
-                <div className="w-52 h-[20rem] flex flex-col items-center rounded-lg bg-black  p-5"></div>
-            </div>
-          </div>
+          <div className="mb-6 h-4 w-32 rounded bg-line"></div>
+          <div className="h-40 w-full max-w-xl rounded-lg bg-hover md:h-56"></div>
+        </div>
+        <div className="mb-8 mt-16 h-8 w-40 rounded bg-line"></div>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {[0, 1, 2].map((i) => (
+            <div key={i} className="h-56 rounded-lg border border-line bg-hover"></div>
+          ))}
         </div>
       </div>
-      <div className="flex flex-grow"></div>
-    </div>
+    </main>
   )
 }
 

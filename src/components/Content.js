@@ -1,4 +1,12 @@
 import React from "react";
+import { profile } from "../data/resume";
+
+const socials = [
+  { href: "https://github.com/Alexmathai2001", icon: "bi-github", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/alex-mathai/", icon: "bi-linkedin", label: "LinkedIn" },
+  { href: "https://t.me/a1exmathai", icon: "bi-telegram", label: "Telegram" },
+  { href: "https://www.instagram.com/a1exmathai/", icon: "bi-instagram", label: "Instagram" },
+];
 
 const Content = () => {
 
@@ -12,47 +20,56 @@ const Content = () => {
     document.body.removeChild(element);
   };
   return (
-    <div className="h-screen flex flex-col w-full bg-slate-600 text-white">
-      <div className="flex flex-grow"></div>
-      <div className="flex justify-center">
-        <div>
-          <p className="text-3xl md:text-5xl md:my-2 md:mb-10">Hi! I'm Alex mathai</p>
+    <main className="flex min-h-screen w-full items-center justify-center px-5 pb-16 pt-24">
+      <div className="relative z-10 flex max-w-2xl animate-fade-up flex-col items-center text-center">
+        <span className="panel mb-6 inline-flex items-center gap-2 rounded-md px-4 py-1.5 text-xs text-soft">
+          <span className="h-2 w-2 animate-pulse rounded-full bg-accent"></span>
+          {profile.company} · {profile.location}
+        </span>
 
-          {/* links */}
-          <div className="mt-5 flex items-center justify-evenly">
-            {/* github */}
-            <a href="https://github.com/Alexmathai2001">
-            <i class="bi bi-github text-4xl"></i>
-            </a>
-            {/* linkedin */}
-            <a href="https://www.linkedin.com/in/alex-mathai/">
-            <i class="bi bi-linkedin text-4xl"></i>
-            </a>
-            {/* telegram */}
-            <a href="https://t.me/a1exmathai">
-            <i class="bi bi-telegram text-4xl"></i>
-            </a>
-            {/* insta */}
-            <a href="https://www.instagram.com/a1exmathai/">
-            <i class="bi bi-instagram text-4xl"></i>
-            </a>
-          </div>
+        <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl">
+          Hi, I'm {profile.name}
+        </h1>
+        <p className="mt-4 text-lg text-soft sm:text-xl">{profile.role}</p>
+        <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
+          {profile.summary}
+        </p>
 
-          {/* buttons */}
-          <div className="mt-3 flex justify-evenly md:mt-12">
-            <button onClick={handleDownload} className="px-5 md:px-8 md:py-4 py-2 bg-black rounded-lg text-sm">Resume</button>
+        {/* buttons */}
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <button
+            onClick={handleDownload}
+            className="btn bg-accent text-bg hover:opacity-80"
+          >
+            <i className="bi bi-file-earmark-text"></i>
+            Resume
+          </button>
+          <a
+            href={`mailto:${emailAddress}`}
+            className="btn panel text-soft hover:bg-hover"
+          >
+            <i className="bi bi-envelope"></i>
+            Email Me
+          </a>
+        </div>
+
+        {/* links */}
+        <div className="mt-12 flex items-center gap-4">
+          {socials.map((s) => (
             <a
-          href={`mailto:${emailAddress}`}
-          className="px-5 md:px-8 md:py-4 py-2 bg-black rounded-lg text-sm block text-center"
-          style={{ textDecoration: 'none' }}
-        >
-          Email Me
-        </a>
-          </div>
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={s.label}
+              className="panel flex h-12 w-12 items-center justify-center rounded-md text-xl text-soft transition hover:bg-hover hover:text-fg"
+            >
+              <i className={`bi ${s.icon}`}></i>
+            </a>
+          ))}
         </div>
       </div>
-      <div className="flex flex-grow"></div>
-    </div>
+    </main>
   );
 };
 

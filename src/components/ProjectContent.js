@@ -23,58 +23,71 @@ const ProjectContent = () => {
   if(repoData.length === 0 ){
     return <ProjectShimmer />;
   }
-  
 
- 
   return (
-    <div className="h-auto min-h-screen flex flex-col w-full bg-slate-600 text-white">
-      <div className="flex flex-grow"></div>
-      <div className="flex justify-center mt-36 mb-20">
-        <div className="flex flex-col items-center">
-          <p className="capitalize text-center mb-5">my github Streaks</p>
-
-          {/* github api */}
-          <div className="flex justify-center w-full ">
+    <main className="min-h-screen w-full px-5 pb-24 pt-28">
+      <div className="relative z-10 mx-auto max-w-6xl">
+        {/* streaks */}
+        <section className="flex flex-col items-center">
+          <h2 className="mb-6 text-center text-sm font-medium uppercase tracking-widest text-muted">
+            GitHub Streaks
+          </h2>
+          <div className="panel flex w-full max-w-xl justify-center rounded-lg p-4">
             <img
-              className="w-60 md:w-[30rem]"
+              className="w-full max-w-md"
               src="https://github-readme-streak-stats.herokuapp.com/?user=alexmathai2001&theme=dark"
-              alt="jigar-sable"
+              alt="GitHub streak stats"
             />
           </div>
-          {/* projects */}
-          <div className="flex flex-col items-center">
-            <p className="text-center my-5">Project</p>
-            {/* card container */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              {/* card */}
-              {repoData?.map((item, index) => (
-                <div className="w-52 h-[20rem] flex flex-col items-center rounded-lg bg-black  p-5">
-                  <div className="flex flex-col justify-center items-center">
-                    <p className=" font-bold my-2 capitalize">{item?.name}</p>
-                    <p className="text-xs my-2 text-center text-gray-300 capitalize">
-                      {item?.description || "descritpion not added by the user"}
-                    </p>
-                    
-                  </div>
-                  <div className="flex flex-grow"></div>
-				  <p className="text-xs my-3">Major Language : {item?.language}</p>
-                  
-                    <a
-                      href={item?.html_url}
-                      className="text-white flex justify-center items-center mt-4 bg-gray-600 j w-3/6 rounded-xl "
-                    >
-                      <i class="bi bi-code"></i>
-                      <p className="text-sm font-light">code</p>
-                    </a>
-                  
+        </section>
+
+        {/* projects */}
+        <section className="mt-16">
+          <h2 className="mb-8 text-3xl font-bold tracking-tight">
+            Projects
+          </h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {repoData?.map((item) => (
+              <article
+                key={item?.id}
+                className="panel group flex flex-col rounded-lg p-6 transition duration-200 hover:border-muted hover:bg-hover"
+              >
+                <div className="mb-4 flex items-center justify-between text-muted">
+                  <i className="bi bi-folder2-open text-2xl text-soft"></i>
+                  <span className="flex items-center gap-1 text-xs">
+                    <i className="bi bi-star-fill text-soft"></i>
+                    {item?.stargazers_count}
+                  </span>
                 </div>
-              ))}
-            </div>
+                <h3 className="text-lg font-semibold capitalize">{item?.name}</h3>
+                <p className="mt-2 flex-grow text-sm leading-relaxed text-muted">
+                  {item?.description || "Description not added by the user"}
+                </p>
+                <div className="mt-6 flex items-center justify-between">
+                  {item?.language ? (
+                    <span className="rounded-md border border-line px-3 py-1 text-xs text-soft">
+                      {item.language}
+                    </span>
+                  ) : (
+                    <span></span>
+                  )}
+                  <a
+                    href={item?.html_url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 text-sm text-soft transition group-hover:text-fg"
+                  >
+                    <i className="bi bi-code-slash"></i>
+                    Code
+                    <i className="bi bi-arrow-right transition group-hover:translate-x-1"></i>
+                  </a>
+                </div>
+              </article>
+            ))}
           </div>
-        </div>
+        </section>
       </div>
-      <div className="flex flex-grow"></div>
-    </div>
+    </main>
   );
 };
 
